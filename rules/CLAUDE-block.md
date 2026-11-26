@@ -29,6 +29,8 @@ Draft cheap, have the top model approve, render the final on the top tier.
 ### Token hygiene
 - Inline work by default; one agent when the job means reading many files; a fan-out only on request.
 - One chat per task; start a new chat after the first compaction or when the task changes; hand off through `HANDOFF.md`.
+- When the handoff hook asks (150k / 300k / 500k context or an idle hour), write the HANDOFF file it names before answering and end the reply with one line telling the owner to open a new chat. In a new chat, read the handoff the start hook points to when the first message continues that work.
+- When a task is finished and the chat is already big, suggest a new chat even without the hook. Delegate bulk reading to subagents so the main chat stays small.
 - Enable only the connectors the task needs.
 - Batch independent tool calls; load deferred tool schemas in one call; batch predictable browser clicks.
 - Read pages as text, not screenshots; screenshots at 0.4 to 0.6 scale; contact sheets at 1600 px or less for many images.

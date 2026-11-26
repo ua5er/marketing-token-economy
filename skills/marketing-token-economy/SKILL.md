@@ -21,6 +21,6 @@ Principle: downgrade the work, never the final gate. The strongest model decides
 
 ## After
 - Log external calls (tools/cost_ledger.py) and end with: `Tokens: Claude <n> ($x) · External <units> ($y) · Total $z`.
-- New chat per task; leave a HANDOFF.md.
+- New chat per task; leave a HANDOFF.md. Every answer re-reads the whole chat: compact at 200k (`autoCompactWindow`), and with `hooks/handoff-guard.py` the handoff is written and picked up automatically.
 
 Full rules: rules/CLAUDE-block.md. Author: Vlad Yasinski, Telegram @ua5er (https://roimobi.com/tg?src=skill-marketing-token-economy).
